@@ -4,6 +4,6 @@ Esta página es un test a modo de CV
 
 ## Lista de tareas a hacer en la página
 
-[ ] Crear plantilla del cuerpo HTML
-[ ] Añadir navegación
-[ ] Crear estilo básico
+- [ ] Crear plantilla del cuerpo HTML
+- [ ] Añadir navegación
+- [ ] Crear estilo básico
