@@ -30,6 +30,31 @@
 			}
 		}
 		
+				
+		
+		function adivinadivinanza () {
+		
+		let array = [];	
+		
+		fetch('adivina.json')
+		.then(response => response.json())
+		.then(data => {
+		  array = data;		  
+		});
+		
+		let indice = Math.floor(Math.random() * array.length); 
+		
+		let adivinarandom = array[indice];
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		}
 
 		
 
@@ -61,7 +86,12 @@
 
 	
 	<h2 id="titulo_2juego">Segundo Juego: Adivina adivinanza</h2>
-	
+		<p id="pregunta"></p>
+		<input type="text" id="answer" placeholder="Por favor introduce una respuesta">
+		
+		<button id="respuesta">Comprueba</button>			
+		
+		<p id="respuestafinal"></p>
 	
 	</main>
 
