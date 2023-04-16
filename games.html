@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Toni Galan </title>
+	<link rel="icon" type"image/x-icon" href="selda.png">
+	<link rel="stylesheet" href="style.css" />
+	<script>
+		let numero= Math.floor(Math.random()*100+1);
+
+		function check_number ()
+		{
+			console.log(numero);
+			let jugador =  document.getElementById("numero_jugador").value;
+			console.log(jugador);
+			let valor= parseInt(jugador);
+
+			if (isNaN(valor)){
+				document.getElementById("resultado").innerHTML ="<strong class=\"error\">ERROR</strong>";
+				return;
+			}
+			if (valor > numero) {
+				document.getElementById("resultado").innerHTML ="<em>El numero "+valor+" es mayor</em>";
+			}
+			else if (valor < numero) {
+				document.getElementById("resultado").innerHTML ="<em>El numero "+valor+" es menor</em>";
+			}
+			else {
+				document.getElementById("resultado").innerHTML = "<strong>Felicidades has acertado el numero</strong>";
+			}
+		}
+		
+
+		
+
+	</script>
+</head>
+<body id="game-page">
+
+	<header>
+		<h1>Toni Galán</h1>
+		<p>Estudiante de Ciberseguridad en Enti</p>
+	</header>
+
+	<nav>
+		<ul>
+				<li><a href="index.html">Portada</a></li>
+				<li><a href="cv.html">CV</a></li>
+				<li><a href="game.html">Juego</a></li>
+				<li><a href="projects.html">Proyectos</a></li>
+				<li><a href="contact.html">Contacto</a></li>
+		</ul>
+
+	</nav>
+	<main>
+	<h2 id="titulo_juego">Primer Juego:Adivina el numero entre el 1 y el 100</h2>
+		
+		<p id="resultado">Introduce un número</p>
+		<p><input type"text" id="numero_jugador"/></p>
+		<p><input type="button" value="Adivina!" onClick="check_number();" /></p>		
+
+	
+	<h2 id="titulo_2juego">Segundo Juego: Adivina adivinanza</h2>
+	
+	
+	</main>
+
+	<footer>
+		<h2>Información extra</h2>
+		<p>Toni Galán (c) 2023</p>
+	</footer>
+
+</body>
+
+
+</html>
