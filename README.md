@@ -1,58 +1,74 @@
-#M04UF1
+# M04UF1
 Cyberseguridad: Llenguatge de Marques
 
-##XML
-XML es un formato de texto mediante etiquetas
+## XML
 
+XML es un formato de texto mediante **etiquetas**
+>
 Usos de XML:
 
->Almacenamiento de datos entre plataformas
+Almacenamiento de datos entre plataformas
 >
->Se transforma al formato deseado: HTML, XHTML, etc
+Se transforma al formato deseado: **HTML, XHTML, etc**
 
-Ejemplo XML:
+Ejemplo XML: 
 
-<?xml version="1.0" encoding="UTF-8" ?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<!DOCTYPE character SYSTEM "character.dtd">
-<characters> 
+?xml version="1.0" encoding="UTF-8" ?>
+xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+!DOCTYPE character SYSTEM "character.dtd">
+>
+\<characters\> 
+>
 	<character id_character="1">
-		<name>Eustaquio</name>
+	
+		<name\>Eustaquio\</name>
+		
 		<surname>Mendoza</surname>
-		<race>Enano</race>
+		
+		<race\>Enano\</race\>
+		
 		<class>Artificiero</class>
+		
 		<gender abbrev="N">Non-Binary</gender>
+		
 		<height cm="130" />
+		
 		<weight kg="80" />
+		
 		<language abbrev="prt">Portugués</language>
+		
 		<TieneLaESO />
+		
 		<weapons>
+		
 			<weapon id_weapon="1" />
+			
 			<weapon id_weapon="3" />
+			
 			<weapon id_weapon="7" />
+			
 			<weapon id_weapon="2" />
-		</weapons>
+			
 	</character>
-</characters>
-
-
->Etiquetas: Parte principal que analiza el doc XML. Dos etiquetas, de apertura y de cierre.
+>
+>**Etiquetas:** Parte principal que analiza el doc XML. Dos etiquetas, de apertura y de cierre.
 >
 >Cada Etiqueta debe tener su cierre, se pueden crear etiquetas EMPTY
 >
->CDATA: trata el texto como puro
+>**CDATA:** trata el texto como puro
 >
->Schemas:
+>**Schemas:**
 
-##DTD
 
+## DTD 
 
 Ejemplo DTD
 
->La vida es una lenteja
->O la toma o la deja
+> La vida es una lenteja
+> O la toma o la deja
+>
+>> Guacamole 2024-2001
 
->>Guacamole 2024-2001
 
 ---
 
@@ -95,3 +111,4 @@ Y [ESTO](https://enti.cat) es otro enlace
 | 3 | Messi | 44 | 32 |
 
 \* ejemplo de escapado
+
