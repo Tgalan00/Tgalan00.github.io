@@ -6,57 +6,68 @@
 	<link rel="icon" type"image/x-icon" href="selda.png">
 	<link rel="stylesheet" href="style.css" />
 	<script>
-		let numero= Math.floor(Math.random()*100+1);
-
-		function check_number ()
-		{
+		let numero = Math.floor(Math.random() * 100 + 1);
+		
+		function checkNumber() {
 			console.log(numero);
-			let jugador =  document.getElementById("numero_jugador").value;
+			let jugador = document.getElementById("numero_jugador").value;
 			console.log(jugador);
-			let valor= parseInt(jugador);
+			let valor = parseInt(jugador);
 
-			if (isNaN(valor)){
-				document.getElementById("resultado").innerHTML ="<strong class=\"error\">ERROR</strong>";
+			if (isNaN(valor)) {
+				document.getElementById("resultado").innerHTML = "<strong class=\"error\">ERROR</strong>";
 				return;
 			}
 			if (valor > numero) {
-				document.getElementById("resultado").innerHTML ="<em>El numero "+valor+" es mayor</em>";
+				document.getElementById("resultado").innerHTML = "<em>El número " + valor + " es mayor</em>";
 			}
 			else if (valor < numero) {
-				document.getElementById("resultado").innerHTML ="<em>El numero "+valor+" es menor</em>";
+				document.getElementById("resultado").innerHTML = "<em>El número " + valor + " es menor</em>";
 			}
 			else {
-				document.getElementById("resultado").innerHTML = "<strong>Felicidades has acertado el numero</strong>";
+				document.getElementById("resultado").innerHTML = "<strong>Felicidades, has acertado el número</strong>";
 			}
 		}
-		
-				
-		
-		function adivinadivinanza () {
-		
-		let array = [];	
-		
+
+		let adivina = [];
+		let current;
+
 		fetch('adivina.json')
-		.then(response => response.json())
-		.then(data => {
-		  array = data;		  
-		});
-		
-		let indice = Math.floor(Math.random() * array.length); 
-		
-		let adivinarandom = array[indice];
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			.then(response => response.json())
+			.then(data => {
+				adivina = data;
+				show();
+			})
+			.catch(error => {
+				console.error('Error al cargar las adivina:', error);
+			});
+
+		function show() {
+			current = adivina[Math.floor(Math.random() * adivina.length)];
+			document.getElementById('pregunta').innerText = current.pregunta;
 		}
 
+		function respuestacorrecta() {
 		
+			let respuestaUsuario = document.getElementById('answer').value.toLowerCase();
+			
+			if (verificarespuesta(respuestaUsuario, current.respuesta.toLowerCase())) {
+				document.getElementById('respuestafinal').innerHTML = "Correcto!";
+				
+			} else {
+				document.getElementById('respuestafinal').innerHTML = "Incorrecto. Prueba otra vez";
+			}
+		}
+
+		function cambiadivinanza() {
+			show();
+			document.getElementById('answer').value = ''; 
+			document.getElementById('respuestafinal').innerHTML = ''; 
+		}
+
+		function verificarespuesta(respuestaUsuario, respuestaCorrecta) {
+			return respuestaUsuario === respuestaCorrecta;
+		}
 
 	</script>
 </head>
@@ -69,30 +80,32 @@
 
 	<nav>
 		<ul>
-				<li><a href="index.html">Portada</a></li>
-				<li><a href="cv.html">CV</a></li>
-				<li><a href="game.html">Juego</a></li>
-				<li><a href="projects.html">Proyectos</a></li>
-				<li><a href="contact.html">Contacto</a></li>
+			<li><a href="index.html">Portada</a></li>
+			<li><a href="cv.html">CV</a></li>
+			<li><a href="projects.html">Proyectos</a></li>
+			<li><a href="contact.html">Contacto</a></li>
+			<li><a href="games.html">Games</a></li>
 		</ul>
 
 	</nav>
 	<main>
-	<h2 id="titulo_juego">Primer Juego:Adivina el numero entre el 1 y el 100</h2>
-		
-		<p id="resultado">Introduce un número</p>
-		<p><input type"text" id="numero_jugador"/></p>
-		<p><input type="button" value="Adivina!" onClick="check_number();" /></p>		
+		<h2 id="titulo_juego">Primer Juego: Adivina el número entre 1 y 100</h2>
 
-	
-	<h2 id="titulo_2juego">Segundo Juego: Adivina adivinanza</h2>
+		<p id="resultado">Introduce un número</p>
+		<p><input type="text" id="numero_jugador"/></p>
+		<p><input type="button" value="Adivina!" onClick="checkNumber();" /></p>
+
+
+		<h2 id="titulo_2juego">Segundo Juego: Adivina adivinanza</h2>
+
 		<p id="pregunta"></p>
-		<input type="text" id="answer" placeholder="Por favor introduce una respuesta">
-		
-		<button id="respuesta">Comprueba</button>			
-		
+		<div class="adivina"><input type="text" id="answer" placeholder="Por favor introduce una respuesta"></div>
+
+		<button id="respuesta" onClick="respuestacorrecta();">Comprueba</button>
+		<button id="cambiar" onClick="cambiadivinanza();">Cambia Adivinanza</button>
+
 		<p id="respuestafinal"></p>
-	
+
 	</main>
 
 	<footer>
@@ -101,6 +114,4 @@
 	</footer>
 
 </body>
-
-
 </html>

@@ -1,5 +1,64 @@
 <!DOCTYPE html>
 <html>
+<script>
+
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+        event.preventDefault();
+        rellenarcampos();
+    });
+    
+    function rellenarcampos() {
+    
+        let nombre = document.getElementById("nombre").value;
+        let apellido = document.getElementById("surname").value;
+        let email = document.getElementById("correo").value;
+        let country = document.getElementById("country").value;
+        let ojos = document.getElementById("eyes").value;
+        let fecha = document.getElementById("date").value;
+        let zodiaco = document.getElementById("zodiaco").value;
+        
+        
+        if (nombre == '') {		
+            alert('Rellena los campos restantes por favor.')
+            return;
+        }
+        
+        if (apellido == '') {		
+            alert('Rellena los campos restantes por favor.')
+            return;
+        }
+        
+        if (email == '') {		
+            alert('Rellena los campos restantes por favor.')
+            return;
+        }
+        
+        if (country == none) {		
+            alert('Rellena los campos restantes por favor.')
+            return;
+        }
+        
+        if (ojos == none) {		
+            alert('Rellena los campos restantes por favor.')
+            return;
+        }
+        
+        if (fecha == none) {		
+            alert('Rellena los campos restantes por favor.')
+            return;
+        }
+        
+        if (zodiaco == none) {		
+            alert('Rellena los campos restantes por favor.')
+            return;
+        }
+        
+       
+    }
+    
+    </script>
+
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Toni Galan </title>
@@ -16,21 +75,28 @@
 	<nav>
 		<ul>
 				<li><a href="index.html">Portada</a></li>
-				<li><a href="cv.html">CV</a></li>
+				<li><a href="cv.html">Curriculum</a></li>
 				<li><a href="hobbies.html">Hobbies</a></li>
-				<li><a href="game.html">Juego</a></li>
+				<li><a href="contact.html">Contacto</a></li>
 				<li><a href="games.html">Games</a></li>
 				
 		</ul>
 
 	</nav>
-	<main id="contact-main">
-	<h2>Formulario de contacto</h2>
-	<form>
-	
-		<p><label for="nombre">Nombre:</label><span style="color: red !important; display: inline; float: none;">*</span>   <input type="text" name="contact_name" id="nombre" /></p>
-		<p><label for="surname">Apellido:</label><span style="color: red !important; display: inline; float: none;">*</span>   <input type="text" name="contact_surname" id="surname" /></p>
-		<p><label for="correo">Correo:</label><span style="color: red !important; display: inline; float: none;">*</span>   <input type="email" name="contact_email" id="correo" /></p>
+	<main id="contact-main" class="contenedor">
+		<h2>Formulario de contacto</h2>
+		<form id="formulario" action="mailto:toni.galan@enti.cat" method="get" enctype="text/plain">
+		<fieldset>
+		<legend> Información Personal </legend>
+		
+		<p><label for="nombre">Nombre:</label><span style="color: red !important; display: inline; float: none;">*</span><input type="text" name="nombre" id="nombre" placeholder="Tu nombre" required /></p>
+		
+		<label for="surname">Apellido:</label><span style="color: red !important; display: inline; float: none;">*</span> 
+		<input type="text" name="contact_surname" id="surname" placeholder="Tu apellido" required />
+		
+		<label for="correo">Correo:</label><span style="color: red !important; display: inline; float: none;">*</span> 
+		<input type="email" name="contact_email" id="correo" placeholder="Tu correo" required />
+		
 		<label for="country">Pais:</label><span style="color: red !important; display: inline; float: none;">*</span>      
         
             <select id="country" name="country" class="form-control">
@@ -279,10 +345,10 @@
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
-		<p><label for="eyes">Ojos:</label>  <input type="color" name="contact_eyes" id="eyes" /></p>
-		<p><label for="date">Fecha de nacimiento:</label>  <input type="date" name="contact_date" id="date" min="2005-01-01" /></p>
+		<p><label for="eyes">Ojos:</label>  <input type="color" name="contact_eyes" id="eyes" required /></p>
+		<p><label for="date">Fecha de nacimiento:</label>  <input type="date" name="contact_date" id="date" min="2005-01-01" required /></p>
 		<p><label for="zodiaco">Signo Zodiaco:</label> 
-			<select name"contact_zodiaco" id="zodiaco">
+			<select name"contact_zodiaco" id="zodiaco" required >
 
 				<option value"acuario">Acuario</option>
 				<option value"aries">Aries</option>
@@ -300,8 +366,11 @@
 
 			</select>
 		</p>
-		<textarea name="textarea" rows="10" cols="50">Comentario:</textarea>
+		<p><label for="comentario"><textarea name="textarea" rows="10" cols="50">Comentario:</textarea></label></p>
+		<p><input type="submit" value="Enviar" id="enviar" onClick="rellenarcampos();" /></p>
+	</fieldset>
 	</form>
+	
 	</main>
 
 	<footer>
